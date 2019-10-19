@@ -1,0 +1,23 @@
+{% if latest_url_list %}
+<style>
+	#textarea1 {
+		float: left;
+		height: 100%;
+		width: 49%;
+	}
+
+	#textarea2 {
+		float: right;
+		height: 100%;
+		width: 49%;
+	}
+</style>
+<textarea readonly id="textarea1">
+{% for url in latest_url_list %}{{url.timeshift}}
+{% endfor %}
+</textarea>
+{% endif %}
+<textarea readonly id="textarea2">
+{% for url in latest_url_list %}{{url.pub_date}}
+{% endfor %}
+</textarea>

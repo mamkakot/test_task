@@ -1,0 +1,34 @@
+<head>
+	<title>Парсинг URL</title>
+</head>
+
+<body>
+	{% if latest_url_list %}
+		
+		<style>
+			#area1 {
+				float: left;
+				height: 100%;
+				width: 49.7%;
+			}		
+
+			#area2 {
+				float: right;
+				height: 100%;
+				width: 49.7%;
+			}
+		</style>
+
+	<textarea readonly id="area1">{% for url in latest_url_list %}{{ url.pub_date|date:'d.m.Y'}} {% if url.info %}{{ url.pub_date | time:'H:i:s'}}: {{ url.requested_url.url_name }} успешно получен
+{% else %}Ошибка получения
+	{% endif %}{% endfor %}</textarea>
+
+	<textarea readonly id="area2">{% for url in latest_url_list %}{{ url.requested_url.url_name }}{% if url.info %} &ndash; {{ url.info }}{% endif %}
+{% endfor %}</textarea>
+	
+	{% else %}
+	
+	<h2>Нет доступных страниц</h2>
+	
+	{% endif %}
+</body>
