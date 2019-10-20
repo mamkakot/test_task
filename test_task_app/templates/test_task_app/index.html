@@ -19,9 +19,9 @@
 			}
 		</style>
 
-	<textarea readonly id="area1">{% for url in latest_url_list %}{{ url.pub_date|date:'d.m.Y'}} {% if url.info %}{{ url.pub_date | time:'H:i:s'}}: {{ url.requested_url.url_name }} успешно получен
+	<textarea readonly id="area1">{% for url in latest_url_list %}{{ url.pub_date|date:'d.m.Y'}} {{ url.pub_date | time:'H:i:s'}}: {% if url.info %}{{ url.requested_url.url_name }} успешно получен
 {% else %}Ошибка получения
-	{% endif %}{% endfor %}</textarea>
+{% endif %}{% endfor %}</textarea>
 
 	<textarea readonly id="area2">{% for url in latest_url_list %}{{ url.requested_url.url_name }}{% if url.info %} &ndash; {{ url.info }}{% endif %}
 {% endfor %}</textarea>

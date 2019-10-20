@@ -32,4 +32,4 @@ class URLResults(models.Model):
     pub_date = models.DateTimeField()
 
     def __str__(self):
-        return self.url_name
+        return self.requested_url.url_name
